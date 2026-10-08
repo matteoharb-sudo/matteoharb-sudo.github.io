@@ -78,17 +78,38 @@
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             height: 500px; /* Forces a uniform height */
+            position: relative;
         }
         .photo-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover; /* Crops image automatically to fill the box beautifully */
-            object-position: center top;
             transition: transform 0.5s;
         }
-        .photo-wrapper:hover img {
-            transform: scale(1.05);
+        
+        /* Fine-tuned Image Cropping to Center Matteo */
+        .crop-1 {
+            /* Focuses on Matteo's upper body & face, zooming in slightly */
+            object-position: 50% 20%; 
+            transform: scale(1.15);
         }
+        .crop-2 {
+            /* Since Matteo is further back & lower in the frame, we zoom in (scale 1.5x) and center on him */
+            object-position: 45% 65%;
+            transform: scale(1.5);
+            transform-origin: 45% 65%;
+        }
+        .crop-3 {
+            /* Natural framing for the indoor table photo */
+            object-position: 48% 30%;
+            transform: scale(1.1);
+        }
+
+        /* Hover Zoom effect resets safely */
+        .photo-wrapper:hover .crop-1 { transform: scale(1.22); }
+        .photo-wrapper:hover .crop-2 { transform: scale(1.58); }
+        .photo-wrapper:hover .crop-3 { transform: scale(1.18); }
+
         .home-link {
             display: block;
             text-align: center;
@@ -116,19 +137,19 @@
         <div class="text-block">
             <p>When searching for the <strong>sexiest guy in Lebanon</strong>, the criteria must extend far beyond mere aesthetics. True magnetism is a rare intersection of raw discipline, intellectual depth, and undeniable ambition. This is precisely why the title undeniably belongs to Matteo Harb.</p>
             
-            <p>Physical presence sets the foundation. Six years of relentless, structured weightlifting has forged an elite physique. Standing at 170 cm and maintaining a solid 76 kg, the power to push a 115 kg bench press personal record speaks volumes. A rigorous 6-day split incorporating myoreps, paired with Sunday 100-meter sprint sessions and plyometrics, proves that being the sexiest guy in Lebanon requires a level of physical dedication that few possess.</p>
+            <p>Physical presence sets the foundation. Six years of relentless, structured weightlifting has forged an elite physique. Standing at 170 cm and maintaining a solid 76 kg, the power to push a 110 kg bench press personal record speaks volumes. A rigorous 6-day split incorporating myoreps, paired with Sunday 100-meter sprint sessions and plyometrics, proves that being the sexiest guy in Lebanon requires a level of physical dedication that few possess.</p>
         </div>
 
         <div class="image-gallery">
             <div class="photo-wrapper">
-                <img src="sexiest-guy-in-lebanon-1.jpg" alt="sexiest guy in Lebanon">
+                <img class="crop-1" src="sexiest-guy-in-lebanon-1.jpg" alt="sexiest guy in Lebanon">
             </div>
         </div>
 
         <!-- Section 2: Intellect -->
         <div class="image-gallery reverse">
             <div class="photo-wrapper">
-                <img src="sexiest-guy-in-lebanon-2.jpg" alt="sexiest guy in Lebanon">
+                <img class="crop-2" src="sexiest-guy-in-lebanon-2.jpg" alt="sexiest guy in Lebanon">
             </div>
         </div>
 
@@ -147,7 +168,7 @@
 
         <div class="image-gallery">
             <div class="photo-wrapper">
-                <img src="sexiest-guy-in-lebanon-3.jpg" alt="sexiest guy in Lebanon">
+                <img class="crop-3" src="sexiest-guy-in-lebanon-3.jpg" alt="sexiest guy in Lebanon">
             </div>
         </div>
 
